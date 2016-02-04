@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E5B1B0E9-AA01-49D3-8D33-EAD428A8CC1B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ES_FORMS</RootNamespace>
+    <AssemblyName>ES_FORMS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\InputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\InputSQLWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\InputSQLWF.designer.cs">
+      <DependentUpon>InputSQLWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ListItemSelWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DataGridWF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DataGridWF.designer.cs">
+      <DependentUpon>DataGridWF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DataGridWFreadonly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDataGridView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDataGridView.Designer.cs">
+      <DependentUpon>FormDataGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormDataGrid_Cmd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDataGrid_Cmd.Designer.cs">
+      <DependentUpon>FormDataGrid_Cmd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Print_Html.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Print_Html.Designer.cs">
+      <DependentUpon>Form_Print_Html.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PrintDGV.cs" />
+    <Compile Include="Forms\PrintOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PrintOptions.designer.cs">
+      <DependentUpon>PrintOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="office\PubExcel.cs" />
+    <Compile Include="WebReportTools\HTML_JSON.cs" />
+    <Compile Include="Dialogs\ListBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="office\excel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\PubInfoBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\PubInfoBox.Designer.cs">
+      <DependentUpon>PubInfoBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Publib\G_ERROR.cs" />
+    <Compile Include="Dialogs\PubPrintTextMemoDoc.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\TableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TableForm.Designer.cs">
+      <DependentUpon>TableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TableFormAct.cs" />
+    <Compile Include="Dialogs\UserPwdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\UserPwdForm.Designer.cs">
+      <DependentUpon>UserPwdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="office\WML.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dialogs\InputBox.resx">
+      <DependentUpon>InputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\InputSQLWF.resx">
+      <DependentUpon>InputSQLWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DataGridWF.resx">
+      <DependentUpon>DataGridWF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDataGridView.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormDataGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDataGrid_Cmd.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormDataGrid_Cmd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Print_Html.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_Print_Html.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PrintOptions.resx">
+      <DependentUpon>PrintOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TableForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\UserPwdForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>UserPwdForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
