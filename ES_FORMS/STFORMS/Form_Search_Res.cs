@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ES_FORMS.SMFORMS
+namespace ES_FORMS.STFORMS
 {
     public partial class Form_Search_Res : Form, ES_FORMS.Publib.Forms.iESUIFONT
     {

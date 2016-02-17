@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ES_FORMS.SMFORMS
+namespace ES_FORMS.STFORMS
 {
     public partial class Form_Search : Form
     {
@@ -193,8 +193,8 @@ namespace ES_FORMS.SMFORMS
             String stud_ref = c.Text.Split(':')[0];
             try
             {
-                ES_FORMS.SMFORMS.StudMain_Data_Schema.conn = conn;
-                ES_FORMS.SMFORMS.FormStudInfo_002 fsi = new ES_FORMS.SMFORMS.FormStudInfo_002(stud_ref, null, conn);
+                StudMain_Data_Schema.conn = conn;
+                FormStudInfo_002 fsi = new FormStudInfo_002(stud_ref, null, conn);
                 fsi.MdiParent = _parentForm;
                 fsi.Show();
             }

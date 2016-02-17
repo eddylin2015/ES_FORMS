@@ -6,7 +6,7 @@ using System.Data.Odbc;
 using System.Windows.Forms;
 using System.Collections;
 using System.Data;
-namespace ES_FORMS.SMFORMS
+namespace ES_FORMS.STFORMS
 {
     public class FormStud_Ctr_ITEM
     {

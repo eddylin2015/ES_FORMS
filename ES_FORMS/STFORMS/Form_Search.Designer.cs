@@ -1,4 +1,4 @@
-﻿namespace ES_FORMS.SMFORMS
+﻿namespace ES_FORMS.STFORMS
 {
     partial class Form_Search
     {

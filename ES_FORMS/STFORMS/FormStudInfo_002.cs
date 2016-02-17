@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.Odbc;
 
-namespace ES_FORMS.SMFORMS
+namespace ES_FORMS.STFORMS
 {
     public partial class FormStudInfo_002 : Form
     {
