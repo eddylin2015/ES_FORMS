@@ -92,6 +92,7 @@
       <DependentUpon>PrintOptions.cs</DependentUpon>
     </Compile>
     <Compile Include="office\PubExcel.cs" />
+    <Compile Include="Publib\Sidebar.cs" />
     <Compile Include="SFFORMS\ds.cs">
       <DependentUpon>ds.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -259,7 +260,6 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
     <None Include="SFFORMS\ds.xsc">
       <DependentUpon>ds.xsd</DependentUpon>
     </None>
