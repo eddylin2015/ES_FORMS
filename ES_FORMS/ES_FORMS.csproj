@@ -34,8 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DataGridViewCustomColumn">
+      <HintPath>..\ADMIN\bin\Debug\DataGridViewCustomColumn.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -88,13 +92,50 @@
       <DependentUpon>PrintOptions.cs</DependentUpon>
     </Compile>
     <Compile Include="office\PubExcel.cs" />
-    <Compile Include="SMFORMS\FormStudInfo_002.cs">
+    <Compile Include="SFFORMS\ds.cs">
+      <DependentUpon>ds.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SFFORMS\ds.Designer.cs">
+      <DependentUpon>ds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SFFORMS\Form_Search.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SMFORMS\FormStudInfo_002.designer.cs">
+    <Compile Include="SFFORMS\Form_Search.designer.cs">
+      <DependentUpon>Form_Search.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SFFORMS\Form_Search_Res.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SFFORMS\Form_Search_Res.designer.cs">
+      <DependentUpon>Form_Search_Res.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SFFORMS\FormStafInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SFFORMS\FormStafInfo.designer.cs">
+      <DependentUpon>FormStafInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STFORMS\FormStudInfo_002.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STFORMS\FormStudInfo_002.designer.cs">
       <DependentUpon>FormStudInfo_002.cs</DependentUpon>
     </Compile>
-    <Compile Include="SMFORMS\FormStudInfo_002_Interface.cs" />
+    <Compile Include="STFORMS\FormStudInfo_002_Interface.cs" />
+    <Compile Include="STFORMS\Form_Search.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STFORMS\Form_Search.designer.cs">
+      <DependentUpon>Form_Search.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STFORMS\Form_Search_Res.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STFORMS\Form_Search_Res.designer.cs">
+      <DependentUpon>Form_Search_Res.cs</DependentUpon>
+    </Compile>
     <Compile Include="WebReportTools\HTML_JSON.cs" />
     <Compile Include="Dialogs\ListBoxForm.cs">
       <SubType>Form</SubType>
@@ -169,8 +210,23 @@
       <SubType>Designer</SubType>
       <DependentUpon>UserPwdForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SMFORMS\FormStudInfo_002.resx">
+    <EmbeddedResource Include="SFFORMS\Form_Search.resx">
+      <DependentUpon>Form_Search.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SFFORMS\Form_Search_Res.resx">
+      <DependentUpon>Form_Search_Res.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SFFORMS\FormStafInfo.resx">
+      <DependentUpon>FormStafInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STFORMS\FormStudInfo_002.resx">
       <DependentUpon>FormStudInfo_002.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STFORMS\Form_Search.resx">
+      <DependentUpon>Form_Search.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STFORMS\Form_Search_Res.resx">
+      <DependentUpon>Form_Search_Res.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +260,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <None Include="SFFORMS\ds.xsc">
+      <DependentUpon>ds.xsd</DependentUpon>
+    </None>
+    <None Include="SFFORMS\ds.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SFFORMS\ds.xss">
+      <DependentUpon>ds.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
