@@ -612,6 +612,9 @@ namespace ES_FORMS.STFORMS
                 if (v.Length < 250) v += e.Value.ToString().Replace('\'', ' ').Replace(';', ' ').Replace('\n', ' ') + "_";
             }
             if (f == "") return;
+
+            String f_sql = String.Format("{0}:{0}{1}",  STUD_REF, f);
+            ES_FORMS.Publib.Tools.log(f_sql);
             /*
             String f_sql = String.Format("insert into log (user,stud_ref,mdt,logd)values('{0}','{1}',now(),'{2}');", es_lib.Publib.Pub.cfg.curr_userinfo.userid, STUD_REF, f);
             using (OdbcCommand cmd = new OdbcCommand(f_sql, conn))

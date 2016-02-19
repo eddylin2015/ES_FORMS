@@ -17,6 +17,7 @@ namespace ES_FORMS.STFORMS
             InitializeComponent();
             conn = pconn;
             _parentForm = _pform;
+            this.MdiParent = _parentForm;
             textBox1.KeyDown += new KeyEventHandler(textBox1_KeyDown);
             textBox2.KeyDown += new KeyEventHandler(textBox1_KeyDown);
             textBox3.KeyDown += new KeyEventHandler(textBox1_KeyDown);

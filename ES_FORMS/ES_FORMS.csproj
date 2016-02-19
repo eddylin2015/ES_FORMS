@@ -153,7 +153,7 @@
     <Compile Include="Dialogs\PubInfoBox.Designer.cs">
       <DependentUpon>PubInfoBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Publib\G_ERROR.cs" />
+    <Compile Include="Publib\G_LOG_ERROR.cs" />
     <Compile Include="Dialogs\PubPrintTextMemoDoc.cs">
       <SubType>Component</SubType>
     </Compile>

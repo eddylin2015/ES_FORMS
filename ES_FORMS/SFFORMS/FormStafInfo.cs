@@ -489,6 +489,9 @@ FROM             sa_stafinfo " + Where_Condition;
                 }
                 if (sum > 0)
                 {
+                    String s = maskedTextBox1.Text;
+                    String msg = String.Format("{0}:staf_ref={0},logd={1}", s, this.Text + sum + "µ§");
+                    ES_FORMS.Publib.Tools.log(msg);
                    /* String u=Pub.cfg.curr_userinfo.userid+Pub.cfg.curr_userinfo.username;
                     String s=maskedTextBox1.Text;
                     String sql = String.Format("insert log (user,staf_ref,mdt,logd) values('{0}','{1}',now(),'{2}');", u, s, this.Text + sum + "µ§" );
