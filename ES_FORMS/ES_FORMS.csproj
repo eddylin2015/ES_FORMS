@@ -92,7 +92,7 @@
       <DependentUpon>PrintOptions.cs</DependentUpon>
     </Compile>
     <Compile Include="office\PubExcel.cs" />
-    <Compile Include="Publib\Sidebar.cs" />
+    <Compile Include="MainFormUI\Sidebar.cs" />
     <Compile Include="SFFORMS\ds.cs">
       <DependentUpon>ds.xsd</DependentUpon>
       <SubType>Component</SubType>

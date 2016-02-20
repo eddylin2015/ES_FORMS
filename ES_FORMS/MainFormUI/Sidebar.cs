@@ -4,9 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ES_FORMS.Publib.SideBar
+namespace ES_FORMS.MainFormUI
 {
-    
+    public class SystemPrivilegeMng
+    {
+        public SidebarItem sidebaritem;
+        protected Form ParentForm;
+        protected string subSysPrivilege;
+        public int SystemID = 0;
+        public MenuItem ss_mi;
+        public SystemPrivilegeMng(Form Sender, string subSysPrivilege)
+        {
+            ParentForm = Sender;
+            this.subSysPrivilege = subSysPrivilege;
+        }
+        ~SystemPrivilegeMng()
+        {
+        }
+        public virtual void AddMenu(MainMenu mm)
+        {
+
+        }
+        public void RemoveMenu(MainMenu mm)
+        {
+            if (ss_mi != null)
+            {
+                mm.MenuItems.Remove(ss_mi);
+            }
+        }
+    }
+
     public struct SidebarItem_Struct
     {
         public string title;
