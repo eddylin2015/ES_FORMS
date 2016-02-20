@@ -22,7 +22,7 @@ namespace studmain
             InitializeComp();
             string cnst5_1DriverConnStrFormat = "Driver={{MySQL ODBC 5.1 Driver}};Server={0};Database={1};UID={2};PWD={3};OPTION=67108867";//optoin=3
             String _conn_txt = null;
-            _conn_txt = string.Format(cnst5_1DriverConnStrFormat, "192.168.102.135", "es_studinfo", "studmain", "963852741");
+            _conn_txt = string.Format(cnst5_1DriverConnStrFormat, "127.0.0.1", "db", "u", "p");
             conn = new OdbcConnection(_conn_txt);
             conn.Open();
             MainMenu fmainMenu = new MainMenu();
@@ -44,9 +44,6 @@ namespace studmain
             msys.MenuItems.Add(new MenuItem("關閉所有子窗口", this.CloseAllSubForm_click));
             this.Menu = fmainMenu;
             this.FormClosed += MainForm_FormClosed;
-
-            ES_FORMS.STFORMS.Form_Search fs = new ES_FORMS.STFORMS.Form_Search_Studinfo(conn, this);
-            fs.Show();
         }
         private OdbcConnection conn = null;
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
