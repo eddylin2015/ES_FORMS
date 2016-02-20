@@ -112,10 +112,10 @@ namespace studmain
         {
             List<SidebarItem> sidebarItems = new List<SidebarItem>();
             SidebarItem sidebaritem = new SidebarItem();
-            sidebaritem.title = "item1";
+            sidebaritem.title = "功能集";
             sidebaritem.subitems = new List<SidebarItem_Struct>();
-            sidebaritem.subitems.Add(new SidebarItem_Struct("月份", "SIBEBARTESTFUN", 0));
-            sidebaritem.subitems.Add(new SidebarItem_Struct("檢視", "SIBEBARTESTFUN", 0));
+            sidebaritem.subitems.Add(new SidebarItem_Struct("功能", "SIBEBARTESTFUN", 0));
+            sidebaritem.subitems.Add(new SidebarItem_Struct("功能", "SIBEBARTESTFUN", 0));
             sidebaritem.t = this;
             // public static function  : null
             // public function         : this 
@@ -123,10 +123,10 @@ namespace studmain
             sidebaritem.atype = Type.GetType("studmain.Form1");
             sidebaritem.next = new List<SidebarItem>();
             SidebarItem subsi = new SidebarItem();
-            subsi.title = "XLS匯入";
+            subsi.title = "功能集";
             subsi.subitems = new List<SidebarItem_Struct>();
-            subsi.subitems.Add(new SidebarItem_Struct("固定", "SIBEBARTESTFUN", 0));
-            subsi.subitems.Add(new SidebarItem_Struct("非固定", "SIBEBARTESTFUN", 0));
+            subsi.subitems.Add(new SidebarItem_Struct("功能", "SIBEBARTESTFUN", 0));
+            subsi.subitems.Add(new SidebarItem_Struct("功能", "SIBEBARTESTFUN", 0));
             subsi.t = this;
             subsi.atype = Type.GetType("studmain.Form1");
             sidebaritem.next.Add(subsi);
