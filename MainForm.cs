@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using ES_FORMS.MainFormUI;
 namespace studmain
 {
     public partial class Form1 : Form
@@ -16,15 +16,49 @@ namespace studmain
         private System.Windows.Forms.Panel sidebar;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.ImageList imageList1;
-        private void InitializeComponent()
+        public Form1()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            InitializeComponent();
+            InitializeComp();
+            string cnst5_1DriverConnStrFormat = "Driver={{MySQL ODBC 5.1 Driver}};Server={0};Database={1};UID={2};PWD={3};OPTION=67108867";//optoin=3
+            String _conn_txt = null;
+            _conn_txt = string.Format(cnst5_1DriverConnStrFormat, "192.168.102.135", "es_studinfo", "studmain", "963852741");
+            conn = new OdbcConnection(_conn_txt);
+            conn.Open();
+            MainMenu fmainMenu = new MainMenu();
+            sidebar.Visible = false;
+            MenuItem sidebar_mu = fmainMenu.MenuItems.Add("三");
+            sidebar_mu.Click += (sender, e) =>
+            {
+                sidebar.Visible = !sidebar.Visible;
+            };
+            MenuItem msys = fmainMenu.MenuItems.Add("系統&SYS");
+            msys.MenuItems.Add(new MenuItem("登入&LOGIN", this.msyslogin_click, Shortcut.CtrlL));
+            msys.MenuItems.Add(new MenuItem("登出&LOGOUT", this.msyslogout_click));
+            msys.MenuItems.Add(new MenuItem("退出&EXIT", this.msysexit_click, Shortcut.CtrlE));
+            msys = fmainMenu.MenuItems.Add("窗口");
+            msys.MenuItems.Add(new MenuItem("排列圖標", this.mnuIcons_click));
+            msys.MenuItems.Add(new MenuItem("層層疊疊", this.mnuCascade_click));
+            msys.MenuItems.Add(new MenuItem("水平鋪平", this.mnuTileHorizontal_click));
+            msys.MenuItems.Add(new MenuItem("垂直鋪平", this.mnuTileVertical_click));
+            msys.MenuItems.Add(new MenuItem("關閉所有子窗口", this.CloseAllSubForm_click));
+            this.Menu = fmainMenu;
+            this.FormClosed += MainForm_FormClosed;
+
+            ES_FORMS.STFORMS.Form_Search fs = new ES_FORMS.STFORMS.Form_Search_Studinfo(conn, this);
+            fs.Show();
+        }
+        private OdbcConnection conn = null;
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            conn.Close();
+            conn.Dispose();
+        }
+        private void InitializeComp()
+        {
             this.sidebar = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.sidebar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,70 +89,16 @@ namespace studmain
             this.splitter1.TabIndex = 4;
             this.splitter1.TabStop = false;
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "jasmine-flower-clipart1.gif");
-            this.imageList1.Images.SetKeyName(1, "1Document.ico");
-            this.imageList1.Images.SetKeyName(2, "2Programs.ico");
-            this.imageList1.Images.SetKeyName(3, "3Screw.ico");
-            this.imageList1.Images.SetKeyName(4, "4find_ico.png");
-            this.imageList1.Images.SetKeyName(5, "5xlsx_32.png");
-            this.imageList1.Images.SetKeyName(6, "6calc.png");
-            this.imageList1.Images.SetKeyName(7, "7Print3.ico");
-            this.imageList1.Images.SetKeyName(8, "8Report.ico");
-            this.imageList1.Images.SetKeyName(9, "9xlsx_imp.PNG");
-            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 500);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.sidebar);
-            this.Controls.Add(this.pnlDock);
             this.IsMdiContainer = true;
             this.Name = "MainForm";
             this.Text = "資料系統";
             this.sidebar.ResumeLayout(false);
             this.ResumeLayout(false);
-        }
-        
-	public Form1()
-        {
-            InitializeComponent();
-	    string cnst5_1DriverConnStrFormat = "Driver={{MySQL ODBC 5.1 Driver}};Server={0};Database={1};UID={2};PWD={3};OPTION=67108867";//optoin=3
-            String _conn_txt = null;
-            _conn_txt = string.Format(cnst5_1DriverConnStrFormat, "127.0.0.1", "db", "u", "p");
-            conn = new OdbcConnection(_conn_txt);
-            conn.Open();
-
-            MainMenu fmainMenu = new MainMenu();
-            sidebar.Visible = false;
-            MenuItem sidebar_mu = fmainMenu.MenuItems.Add("三");
-            sidebar_mu.Click += (sender, e) =>
-            {
-                    sidebar.Visible = !sidebar.Visible;
-            };
-            MenuItem msys = fmainMenu.MenuItems.Add("系統&SYS");
-            msys.MenuItems.Add(new MenuItem("登入&LOGIN", this.msyslogin_click, Shortcut.CtrlL));
-            msys.MenuItems.Add(new MenuItem("登出&LOGOUT", this.msyslogout_click));
-            msys.MenuItems.Add(new MenuItem("退出&EXIT", this.msysexit_click, Shortcut.CtrlE));
-            msys = fmainMenu.MenuItems.Add("窗口");
-            msys.MenuItems.Add(new MenuItem("排列圖標", this.mnuIcons_click));
-            msys.MenuItems.Add(new MenuItem("層層疊疊", this.mnuCascade_click));
-            msys.MenuItems.Add(new MenuItem("水平鋪平", this.mnuTileHorizontal_click));
-            msys.MenuItems.Add(new MenuItem("垂直鋪平", this.mnuTileVertical_click));
-            msys.MenuItems.Add(new MenuItem("關閉所有子窗口", this.CloseAllSubForm_click));
-            this.Menu = fmainMenu;
-            this.FormClosed += MainForm_FormClosed;
-
-            ES_FORMS.STFORMS.Form_Search fs = new ES_FORMS.STFORMS.Form_Search_Studinfo(conn, this);
-            fs.MdiParent = this;
-            fs.Show();
-        }
-        private OdbcConnection conn = null;
+    }
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (conn.State == System.Data.ConnectionState.Open)
@@ -127,38 +107,41 @@ namespace studmain
                 conn.Dispose();
             }
         }
-	public  void SIBEBARTESTFUN(Object sender, EventArgs e)
-	{
-	//
-	}		
-	private void msyslogin_click(Object sender, EventArgs e)
+        public void SIBEBARTESTFUN(Object sender, EventArgs e)
         {
-	List<SidebarItem> sidebarItems = new List<SidebarItem>();
-	sidebaritem = new SidebarItem();
-        sidebaritem.title = "item1";
-        sidebaritem.subitems = new List<SidebarItem_Struct>();
-        sidebaritem.subitems.Add(new SidebarItem_Struct("月份", "SIBEBARTESTFUN",3));
-        sidebaritem.subitems.Add(new SidebarItem_Struct("檢視", "SIBEBARTESTFUN",1));
-        sidebaritem.t = this;
-        sidebaritem.atype = Type.GetType("Form1");
-        sidebaritem.next = new List<SidebarItem>();
-        SidebarItem subsi=new SidebarItem();
-        subsi.title = "XLS匯入";
-        subsi.subitems = new List<SidebarItem_Struct>();
-        subsi.subitems.Add(new SidebarItem_Struct("固定", "SIBEBARTESTFUN", 9));
-        subsi.subitems.Add(new SidebarItem_Struct("非固定", "SIBEBARTESTFUN", 9));
-        subsi.t = this;
-        subsi.atype = Type.GetType("Form1");
-        sidebaritem.next.Add(subsi);		
-	Sidebar<MainForm> sidebar_binding = new Sidebar<MainForm>(this, sidebar, listView1, imageList1, sidebarItems);
-	}	
+            //
+        }
+        private void msyslogin_click(Object sender, EventArgs e)
+        {
+            List<SidebarItem> sidebarItems = new List<SidebarItem>();
+            SidebarItem sidebaritem = new SidebarItem();
+            sidebaritem.title = "item1";
+            sidebaritem.subitems = new List<SidebarItem_Struct>();
+            sidebaritem.subitems.Add(new SidebarItem_Struct("月份", "SIBEBARTESTFUN", 0));
+            sidebaritem.subitems.Add(new SidebarItem_Struct("檢視", "SIBEBARTESTFUN", 0));
+            sidebaritem.t = this;
+            sidebaritem.atype = Type.GetType("Form1");
+            sidebaritem.next = new List<SidebarItem>();
+            SidebarItem subsi = new SidebarItem();
+            subsi.title = "XLS匯入";
+            subsi.subitems = new List<SidebarItem_Struct>();
+            subsi.subitems.Add(new SidebarItem_Struct("固定", "SIBEBARTESTFUN", 0));
+            subsi.subitems.Add(new SidebarItem_Struct("非固定", "SIBEBARTESTFUN", 0));
+            subsi.t = this;
+            subsi.atype = Type.GetType("Form1");
+            sidebaritem.next.Add(subsi);
+            sidebarItems.Add(sidebaritem);
+            Sidebar<Form1> sidebar_binding = new Sidebar<Form1>(this, sidebar, listView1, imageList1, sidebarItems);
+        }
         private void msyslogout_click(Object sender, EventArgs e)
-        {}
-	private void msysexit_click(Object sender, EventArgs e)
+        {
+            Sidebar<Form1>.CleanSibebar(sidebar, listView1);
+        }
+        private void msysexit_click(Object sender, EventArgs e)
         {
             this.Close();
         }
-private void mnuIcons_click(Object sender, EventArgs e)
+        private void mnuIcons_click(Object sender, EventArgs e)
         {
             this.LayoutMdi(MdiLayout.ArrangeIcons);
         }
@@ -191,7 +174,6 @@ private void mnuIcons_click(Object sender, EventArgs e)
         {
         }
         public override void log(string message)
-        {}
+        { }
     }
 }
-
