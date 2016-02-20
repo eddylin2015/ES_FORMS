@@ -120,7 +120,10 @@ namespace studmain
             sidebaritem.subitems.Add(new SidebarItem_Struct("月份", "SIBEBARTESTFUN", 0));
             sidebaritem.subitems.Add(new SidebarItem_Struct("檢視", "SIBEBARTESTFUN", 0));
             sidebaritem.t = this;
-            sidebaritem.atype = Type.GetType("Form1");
+            // public static function  : null
+            // public function         : this 
+            //                           NameSpace.RD_Class.GetInstance(this.ParentForm);
+            sidebaritem.atype = Type.GetType("studmain.Form1");
             sidebaritem.next = new List<SidebarItem>();
             SidebarItem subsi = new SidebarItem();
             subsi.title = "XLS匯入";
@@ -128,7 +131,7 @@ namespace studmain
             subsi.subitems.Add(new SidebarItem_Struct("固定", "SIBEBARTESTFUN", 0));
             subsi.subitems.Add(new SidebarItem_Struct("非固定", "SIBEBARTESTFUN", 0));
             subsi.t = this;
-            subsi.atype = Type.GetType("Form1");
+            subsi.atype = Type.GetType("studmain.Form1");
             sidebaritem.next.Add(subsi);
             sidebarItems.Add(sidebaritem);
             Sidebar<Form1> sidebar_binding = new Sidebar<Form1>(this, sidebar, listView1, imageList1, sidebarItems);
