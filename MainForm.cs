@@ -127,7 +127,34 @@ namespace studmain
                 conn.Dispose();
             }
         }
-        private void msysexit_click(Object sender, EventArgs e)
+	public  void SIBEBARTESTFUN(Object sender, EventArgs e)
+	{
+	//
+	}		
+	private void msyslogin_click(Object sender, EventArgs e)
+        {
+	List<SidebarItem> sidebarItems = new List<SidebarItem>();
+	sidebaritem = new SidebarItem();
+        sidebaritem.title = "item1";
+        sidebaritem.subitems = new List<SidebarItem_Struct>();
+        sidebaritem.subitems.Add(new SidebarItem_Struct("月份", "SIBEBARTESTFUN",3));
+        sidebaritem.subitems.Add(new SidebarItem_Struct("檢視", "SIBEBARTESTFUN",1));
+        sidebaritem.t = this;
+        sidebaritem.atype = Type.GetType("Form1");
+        sidebaritem.next = new List<SidebarItem>();
+        SidebarItem subsi=new SidebarItem();
+        subsi.title = "XLS匯入";
+        subsi.subitems = new List<SidebarItem_Struct>();
+        subsi.subitems.Add(new SidebarItem_Struct("固定", "SIBEBARTESTFUN", 9));
+        subsi.subitems.Add(new SidebarItem_Struct("非固定", "SIBEBARTESTFUN", 9));
+        subsi.t = this;
+        subsi.atype = Type.GetType("Form1");
+        sidebaritem.next.Add(subsi);		
+	Sidebar<MainForm> sidebar_binding = new Sidebar<MainForm>(this, sidebar, listView1, imageList1, sidebarItems);
+	}	
+        private void msyslogout_click(Object sender, EventArgs e)
+        {}
+	private void msysexit_click(Object sender, EventArgs e)
         {
             this.Close();
         }
@@ -153,7 +180,18 @@ private void mnuIcons_click(Object sender, EventArgs e)
             {
                 this.MdiChildren[i].Close();
             }
-        }	
+        }
+
+    }
+    class TLOG : ES_FORMS.Publib.ESLog
+    {
+
+        public TLOG()
+            : base()
+        {
+        }
+        public override void log(string message)
+        {}
     }
 }
 
