@@ -61,12 +61,17 @@ namespace ES_FORMS.MainFormUI
         public static void CleanSibebar(Panel _Panel, ListView _ListView)
         {
             _ListView.Clear();
+            List<Control> li = new List<Control>();
             foreach (Control ctl in _Panel.Controls)
             {
                 if (ctl is Button)
                 {
-                    _Panel.Controls.Remove(ctl);
+                    li.Add(ctl);
                 }
+            }
+            for (int i = 0; i < li.Count; i++)
+            {
+                _Panel.Controls.Remove(li[i]);
             }
         }
         public void IteratorSidebarItem(List<Button> li, List<SidebarItem> items, ref int tabcnt)
